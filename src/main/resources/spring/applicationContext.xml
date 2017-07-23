@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+           
+          <context:annotation-config />
+          <context:component-scan base-package="ma.okteam" />
+          
+    <bean id="collectionMapperDecorator" class="ma.okteam.galopia.service.mapper.CollectionMapperDecorator"/>
+    <bean id="lazyFieldMapper" class="ma.okteam.galopia.service.mapper.LazyFieldMapper" />     
+    <bean id="dozerMapper" class="org.dozer.DozerBeanMapper" scope="singleton" lazy-init="false">
+    	<property name="customFieldMapper" ref="lazyFieldMapper" />
+    	<property name="mappingFiles"> 
+	      <list> 
+	        <!-- REQUESST -->  
+	        <value>dozer/dozer-mapping.xml</value> 
+	       </list>
+	    </property>
+    </bean>
+        
+ 	<import resource="classpath:hibernate/hibernate.xml"/> 
+	<import resource="classpath:spring/services.xml"/>
+	<import resource="classpath:spring/actions.xml"/>
+	<import resource="classpath:spring/spring-security.xml"/>
+</beans>

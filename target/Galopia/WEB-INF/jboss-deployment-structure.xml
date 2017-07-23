@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+    <deployment>
+		
+		<exclude-subsystems>
+			<subsystem name="webservices"/>
+		</exclude-subsystems>
+		
+        <exclusions>
+			<module name="org.apache.commons.logging" />
+            <module name="org.apache.log4j" />
+            <module name="org.jboss.logging" />
+            <module name="org.jboss.logging.jul-to-slf4j-stub" />
+            <module name="org.jboss.logmanager" />
+            <module name="org.jboss.logmanager.log4j" />
+            <module name="org.slf4j" />
+            <module name="org.slf4j.impl" />
+            <module name="org.slf4j.jcl-over-slf4j" />
+        </exclusions>    
+		<dependencies>
+			<module name="oracle.jdbc" />
+			<module name="asm.asm" />
+			<module name="org.jboss.ironjacamar.jdbcadapters" />
+			<module name="javax.xml.soap.api"/>  
+     		   	<module name="javax.xml.ws.api"/>  
+			<module name="javax.annotation.api"/>
+			<module name="javax.jws.api"/>         
+			<module name="javax.servlet.api"/>
+        </dependencies>
+
+    </deployment>
+</jboss-deployment-structure>
